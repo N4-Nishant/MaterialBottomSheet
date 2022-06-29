@@ -1,5 +1,4 @@
 import {BottomSheetModel} from './BottomSheetModel';
-import {BottomSheetOptions} from './BottomSheetOptions';
 import {BottomSheetType} from './BottomSheetType';
 import {CustomDesign, LibraryDesign} from './CustomDesign';
 
@@ -19,6 +18,5 @@ export struct BottomSheet{
 }
 
 export {BottomSheetModel} from './BottomSheetModel';
-export {BottomSheetOptions} from './BottomSheetOptions';
 export {BottomSheetType} from './BottomSheetType';
 export {CustomDesign, LibraryDesign} from './CustomDesign';
