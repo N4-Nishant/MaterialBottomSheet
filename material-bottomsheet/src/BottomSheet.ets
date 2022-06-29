@@ -1,0 +1,24 @@
+import {BottomSheetModel} from './BottomSheetModel';
+import {BottomSheetOptions} from './BottomSheetOptions';
+import {BottomSheetType} from './BottomSheetType';
+import {CustomDesign, LibraryDesign} from './CustomDesign';
+
+@Component
+export struct BottomSheet{
+  @State private model : BottomSheetModel = undefined
+
+  build(){
+    Column(){
+      if(this.model.getBottomSheetType()==BottomSheetType.STANDARD){
+        Row(){
+          CustomDesign()
+        }
+      }
+    }
+  }
+}
+
+export {BottomSheetModel} from './BottomSheetModel';
+export {BottomSheetOptions} from './BottomSheetOptions';
+export {BottomSheetType} from './BottomSheetType';
+export {CustomDesign, LibraryDesign} from './CustomDesign';
