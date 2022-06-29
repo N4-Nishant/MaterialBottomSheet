@@ -1,16 +1,18 @@
 import {BottomSheetModel} from './BottomSheetModel';
 import {BottomSheetType} from './BottomSheetType';
-import {CustomDesign, LibraryDesign} from './CustomDesign';
 
 @Component
 export struct BottomSheet{
   @State private model : BottomSheetModel = undefined
 
+  @BuilderParam
+  private ui : () => any
+
   build(){
     Column(){
       if(this.model.getBottomSheetType()==BottomSheetType.STANDARD){
         Row(){
-          CustomDesign()
+          this.ui()
         }
       }
     }
@@ -19,4 +21,3 @@ export struct BottomSheet{
 
 export {BottomSheetModel} from './BottomSheetModel';
 export {BottomSheetType} from './BottomSheetType';
-export {CustomDesign, LibraryDesign} from './CustomDesign';
