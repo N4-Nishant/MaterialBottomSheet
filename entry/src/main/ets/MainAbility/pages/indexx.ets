@@ -1,5 +1,5 @@
 import prompt from '@system.prompt';
-import { BottomSheet, BottomSheetModel, BottomSheetOptions, BottomSheetType, CustomDesign, LibraryDesign }  from '@ohos/material-bottomsheet'
+import { BottomSheet, BottomSheetModel, BottomSheetType, CustomDesign, LibraryDesign }  from '@ohos/material-bottomsheet'
 
 @Entry
 @Component
