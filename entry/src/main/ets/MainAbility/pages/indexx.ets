@@ -5,12 +5,12 @@ import { BottomSheet, BottomSheetModel, BottomSheetType }  from '@ohos/material-
 @Component
 struct Index {
   private model : BottomSheetModel = new BottomSheetModel()
-  @State clicked : boolean = false
+  @State check : boolean = false
 
   @Builder
   customDesign() : any {
     Row(){
-      Text("UI provided by the user")
+      Text("UI provided by the user UI")
         .fontSize('25fp')
     }
   }
@@ -19,7 +19,10 @@ struct Index {
     this.model
       .setBottomSheetType(BottomSheetType.STANDARD)
       .setBottomSheetBackgroundColor(Color.White)
-      .setBackgroundOpacity(0.75)
+      .setBackgroundOpacity(0.5)
+      .setHeight('72vp')
+      .setBorderWidth('1vp')
+      .setBorderRadius('14vp')
   }
 
 
@@ -32,21 +35,31 @@ struct Index {
       }
       .width('100%')
       .height('100%')
-      .backgroundColor(Color.Grey)
-      .opacity(this.clicked == false ? 1 : this.model.getBackgroundOpacity())
-      .onClick(()=> this.clicked = false)
+      .backgroundColor('#E5E5E5')
+      .opacity(this.check == false ? 1 : this.model.getBackgroundOpacity())
+      .onClick(()=> this.check = false)
 
-
-      Column() {
-        BottomSheet({
-          model : this.model,
-          ui : this.customDesign()
-        })
+      if(this.check==false){
+        Column(){
+          Button('Bottom Sheet')
+            .onClick(()=>this.check=true)
+        }.width('100%')
       }
-      .width('100%')
-      .height('72vp')
-      .backgroundColor(this.model.getBottomSheetBackgroundColor())
-      .onClick(()=> this.clicked = true)
+      else{
+        Column() {
+          BottomSheet({
+            model : this.model,
+            ui : this.customDesign()
+          })
+        }
+        .width('100%')
+        .height(this.model.getHeight())
+        .borderWidth(this.model.getBorderWidth())
+        .borderRadius(this.model.getBorderRadius())
+        .borderColor(this.model.getBorderColor())
+        .backgroundColor(this.model.getBottomSheetBackgroundColor())
+      }
+
     }
   }
 }
