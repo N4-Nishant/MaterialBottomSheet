@@ -4,62 +4,56 @@ import { BottomSheet, BottomSheetModel, BottomSheetType }  from '@ohos/material-
 @Entry
 @Component
 struct Index {
-  private model : BottomSheetModel = new BottomSheetModel()
-  @State check : boolean = false
+  private model: BottomSheetModel = new BottomSheetModel()
+  @State clicked: boolean = false
 
   @Builder
-  customDesign() : any {
-    Row(){
-      Text("UI provided by the user UI")
+  customDesign(): any {
+    Column(){
+      Text("UI provided by the user")
         .fontSize('25fp')
     }
+    .backgroundColor(Color.Yellow)
   }
 
   aboutToAppear() {
     this.model
       .setBottomSheetType(BottomSheetType.STANDARD)
-      .setBottomSheetBackgroundColor(Color.White)
-      .setBackgroundOpacity(0.5)
+      .setBottomSheetBackgroundColor('#F0F3FF')
+      .setBackgroundScreenColor('#A5A5A5')
+      .setBackgroundOpacity(0.6)
       .setHeight('72vp')
       .setBorderWidth('1vp')
       .setBorderRadius('14vp')
+      .setPadding('10vp')
+      .setUI(this.customDesign)
   }
 
-
-  build() {
-    Stack({alignContent : Alignment.Bottom}) {
-      Column() {
-        Text("Background Screen")
-        .fontSize('30fp')
-        .textAlign(TextAlign.Center)
-      }
-      .width('100%')
-      .height('100%')
-      .backgroundColor('#E5E5E5')
-      .opacity(this.check == false ? 1 : this.model.getBackgroundOpacity())
-      .onClick(()=> this.check = false)
-
-      if(this.check==false){
-        Column(){
+  build(){
+    Column(){
+      if(this.clicked == false){
+        Stack({alignContent : Alignment.Bottom}){
+          Column(){
+            Text("Background Screen")
+              .fontSize('30fp')
+              .textAlign(TextAlign.Center)
+          }
+          .height('100%')
+          .width('100%')
+          .backgroundColor('#E5E5E5')
           Button('Bottom Sheet')
-            .onClick(()=>this.check=true)
-        }.width('100%')
-      }
-      else{
-        Column() {
-          BottomSheet({
-            model : this.model,
-            ui : this.customDesign()
-          })
+            .onClick(() => this.clicked = true)
         }
         .width('100%')
-        .height(this.model.getHeight())
-        .borderWidth(this.model.getBorderWidth())
-        .borderRadius(this.model.getBorderRadius())
-        .borderColor(this.model.getBorderColor())
-        .backgroundColor(this.model.getBottomSheetBackgroundColor())
+        .height('100%')
       }
-
+      else{
+          BottomSheet({
+            model : this.model,
+            clicked : $clicked,
+            ui : null,
+          })
+      }
     }
   }
 }
