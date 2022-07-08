@@ -4,14 +4,15 @@ export class BottomSheetModel {
 
   private bottomSheetType : BottomSheetType = BottomSheetType.STANDARD
   private bottomSheetBackgroundColor : Color | string = '#F0F3FF'
+  private fullBottomSheetBackgroundColor : Color | string = '#F0F3FF'
   private backgroundScreenColor : Color | string = '#A5A5A5'
   private backgroundOpacity : number = 1
-  private height : number | string = '100%'
   private borderWidth : number | string = '1vp'
   private borderRadius : number | string = '4vp'
   private borderColor : Color | string = '#A5A5A5'
   private padding : number | string = '1vp'
   private ui : () => any = null
+  private fullScreenUI : () => any = null
 
   getBottomSheetType() : BottomSheetType {
     return this.bottomSheetType
@@ -21,16 +22,16 @@ export class BottomSheetModel {
     return this.bottomSheetBackgroundColor
   }
 
+  getFullBottomSheetBackgroundColor() : Color | string {
+    return this.fullBottomSheetBackgroundColor
+  }
+
   getBackgroundScreenColor() : Color | string {
     return this.backgroundScreenColor
   }
 
   getBackgroundOpacity() : number {
     return this.backgroundOpacity
-  }
-
-  getHeight() : number | string {
-    return this.height
   }
 
   getBorderWidth() : number | string {
@@ -53,6 +54,10 @@ export class BottomSheetModel {
     return this.ui
   }
 
+  getFullScreenUI() : () => any {
+    return this.fullScreenUI
+  }
+
   setBottomSheetType(bottomSheetType : BottomSheetType)  {
     this.bottomSheetType = bottomSheetType
     return this
@@ -63,6 +68,11 @@ export class BottomSheetModel {
     return this
   }
 
+  setFullBottomSheetBackgroundColor(fullBottomSheetBackgroundColor : Color | string)  {
+    this.fullBottomSheetBackgroundColor = fullBottomSheetBackgroundColor
+    return this
+  }
+
   setBackgroundScreenColor(backgroundScreenColor : Color | string) {
     this.backgroundScreenColor = backgroundScreenColor
     return this
@@ -70,11 +80,6 @@ export class BottomSheetModel {
 
   setBackgroundOpacity(backgroundOpacity : number)  {
     this.backgroundOpacity = backgroundOpacity
-    return this
-  }
-
-  setHeight(height : number | string) {
-    this.height = height
     return this
   }
 
@@ -100,6 +105,11 @@ export class BottomSheetModel {
 
   setUI(ui : () => any) {
     this.ui = ui
+    return this
+  }
+
+  setFullScreenUI(fullScreenUI : () => any) {
+    this.fullScreenUI = fullScreenUI
     return this
   }
 

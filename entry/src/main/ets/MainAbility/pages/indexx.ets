@@ -5,6 +5,8 @@ import { BottomSheet, BottomSheetModel, BottomSheetType }  from '@ohos/material-
 @Component
 struct Index {
   private model: BottomSheetModel = new BottomSheetModel()
+  private model1: BottomSheetModel = new BottomSheetModel()
+  private model2: BottomSheetModel = new BottomSheetModel()
   @State clicked: boolean = false
 
   @Builder
@@ -77,17 +79,50 @@ struct Index {
     .width('100%')
   }
 
+  @Builder
+  customDesign2() : any {
+    Column(){
+      Image($r("app.media.icon"))
+        .objectFit(ImageFit.Cover)
+        .height(24)
+        .width(24)
+    }
+  }
+
   aboutToAppear() {
     this.model
       .setBottomSheetType(BottomSheetType.STANDARD)
       .setBottomSheetBackgroundColor('#F0F3FF')
+      .setFullBottomSheetBackgroundColor('#F0F3FF')
       .setBackgroundScreenColor('#A5A5A5')
       .setBackgroundOpacity(0.6)
-      .setHeight('72vp')
       .setBorderWidth('1vp')
       .setBorderRadius('14vp')
       .setPadding('10vp')
       .setUI(this.customDesign)
+
+    /*this.model1
+      .setBottomSheetType(BottomSheetType.MODEL)
+      .setBottomSheetBackgroundColor('#F0F3FF')
+      .setFullBottomSheetBackgroundColor('#F0F3FF')
+      .setBackgroundScreenColor('#A5A5A5')
+      .setBackgroundOpacity(0.6)
+      .setBorderWidth('1vp')
+      .setBorderRadius('14vp')
+      .setPadding('10vp')
+      .setUI(this.customDesign1)
+      .setFullScreenUI(this.customDesign1)*/
+
+    /*this.model2
+      .setBottomSheetType(BottomSheetType.EXPANDING)
+      .setBottomSheetBackgroundColor('#A000E3')
+      .setBackgroundScreenColor('#A5A5A5')
+      .setBackgroundOpacity(0.6)
+      .setBorderWidth('1vp')
+      .setBorderRadius('14vp')
+      .setPadding('10vp')
+      .setUI(this.customDesign2)
+      .setFullScreenUI(this.customDesign1)*/
   }
 
   build(){
@@ -98,9 +133,10 @@ struct Index {
               Text("Albums")
                 .textAlign(TextAlign.Center)
                 .fontSize('16fp')
-                .backgroundColor('#800080')
+                .backgroundColor('#A000E3')
                 .width('100%')
                 .height('72vp')
+                .fontColor(Color.White)
             }
             Blank(10)
             Column(){
@@ -155,7 +191,22 @@ struct Index {
               model : this.model,
               clicked : $clicked,
               ui : null,
+              fullScreenUI : null,
             })
+
+            /*BottomSheet({
+              model : this.model1,
+              clicked : $clicked,
+              ui : null,
+              fullScreenUI : null,
+            })*/
+
+            /*BottomSheet({
+              model : this.model2,
+              clicked : $clicked,
+              ui : null,
+              fullScreenUI : null,
+            })*/
           }
         }
         .width('100%')
