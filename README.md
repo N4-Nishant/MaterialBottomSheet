@@ -39,6 +39,7 @@ BottomSheet({
             fullScreenBottomSheet: false
           })
 ```
+![Bottom-Sheet](https://user-images.githubusercontent.com/82766420/178322478-828a9a08-19f6-445b-b32e-59a69cbeed1d.png)
 
 4. Code for creating Full screen Bottom-Sheet
 
@@ -57,6 +58,7 @@ BottomSheet({
             fullScreenBottomSheet: true
           })
 ```
+![Full screen Bottom-Sheet](https://user-images.githubusercontent.com/82766420/178322411-82e10531-ade4-4e18-a3aa-19157dcede3a.png)
 
 ## Compatibility
 
