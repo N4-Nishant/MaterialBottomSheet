@@ -1,93 +1,58 @@
 import { BottomSheetModel } from './BottomSheetModel';
-import { BottomSheetType } from './BottomSheetType';
 
 @Component
 export struct BottomSheet {
   @State private model: BottomSheetModel = undefined
   @State fullScreenBottomSheet: boolean = false
-  @Link private clicked: boolean
+  @Link private visible: boolean
   @BuilderParam
-  private ui: () => any
-  @BuilderParam
-  private fullScreenUI: () => any
+  private body: () => any
 
-  aboutToAppear() {
-    this.ui = this.model.getUI()
-    this.fullScreenUI = this.model.getFullScreenUI()
+  aboutToAppear(){
+    if(this.model == null || this.model == undefined){
+      return
+    }
+
+    if(this.fullScreenBottomSheet == null || this.fullScreenBottomSheet == undefined){
+      this.fullScreenBottomSheet = false
+    }
+
   }
 
   build() {
-    Stack({ alignContent: this.model.getBottomSheetType() == BottomSheetType.EXPANDING ? Alignment.BottomEnd : Alignment.Bottom }) {
+    Stack({
+      alignContent:  Alignment.Bottom
+    }) {
 
-        Column() {
-        }
-        .height('100%')
-        .width('100%')
-        .backgroundColor(this.model.getBackgroundScreenColor())
-        .opacity(this.model.getBackgroundOpacity())
-        .onClick(() => {
-          this.clicked = false
-        })
+      Column() {
+      }
+      .height('100%')
+      .width('100%')
+      .backgroundColor(this.model.getBackgroundScreenColor())
+      .opacity(this.model.getBackgroundOpacity())
+      .onClick(() => {
+        this.visible = false
+      })
 
-        if(this.model.getBottomSheetType() == BottomSheetType.STANDARD){
-          Column() {
-            this.ui()
+      Column() {
+        if(this.fullScreenBottomSheet == true){
+          Column(){
+            this.body()
           }
-          .width('100%')
-          .padding(this.model.getPadding())
-          .borderWidth(this.model.getBorderWidth())
-          .borderRadius(this.model.getBorderRadius())
-          .borderColor(this.model.getBorderColor())
-          .backgroundColor(this.model.getBottomSheetBackgroundColor())
-          .alignItems(HorizontalAlign.Center)
-        }
-
-        else if(this.model.getBottomSheetType() == BottomSheetType.MODEL){
-          Column() {
-            if(this.fullScreenBottomSheet == true){
-              Column(){
-                this.fullScreenUI()
-              }
-              .height('100%')
-            }
-            else{
-              Column(){
-                this.ui()
-              }
-            }
-          }
-          .width('100%')
-          .padding(this.model.getPadding())
-          .borderWidth(this.model.getBorderWidth())
-          .borderRadius(this.model.getBorderRadius())
-          .borderColor(this.model.getBorderColor())
-          .backgroundColor(this.fullScreenBottomSheet == false ? this.model.getBottomSheetBackgroundColor() : this.model.getFullBottomSheetBackgroundColor())
-          .alignItems(HorizontalAlign.Center)
+          .height('100%')
           .onClick(() => this.fullScreenBottomSheet = !this.fullScreenBottomSheet)
         }
-
-      else if(this.model.getBottomSheetType() == BottomSheetType.EXPANDING){
-        Column(){
-          if(this.fullScreenBottomSheet == true){
-            Column(){
-              this.fullScreenUI()
-            }
-            .height('100%')
-          }
-          else{
-            Column(){
-              this.ui()
-            }
+        else{
+          Column(){
+            this.body()
           }
         }
-        .width(this.fullScreenBottomSheet == false ? '35%' : '100%')
-        .padding(this.model.getPadding())
-        .borderWidth(this.model.getBorderWidth())
-        .borderRadius(this.model.getBorderRadius())
-        .borderColor(this.model.getBorderColor())
-        .backgroundColor(this.fullScreenBottomSheet == false ? this.model.getBottomSheetBackgroundColor() : this.model.getFullBottomSheetBackgroundColor())
-        .onClick(() => this.fullScreenBottomSheet = !this.fullScreenBottomSheet)
       }
+      .width('100%')
+      .borderRadius(this.model.getBorderRadius())
+      .borderColor(this.model.getBorderColor())
+      .backgroundColor(this.model.getBottomSheetBackgroundColor())
+      .alignItems(HorizontalAlign.Center)
     }
     .height('100%')
     .width('100%')
@@ -96,4 +61,3 @@ export struct BottomSheet {
 
 export { BottomSheetModel } from './BottomSheetModel';
 
-export { BottomSheetType } from './BottomSheetType';
