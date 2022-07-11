@@ -1,8 +1,8 @@
 {
 	"BuildOptions":{
-		"BUNDLE_NAME":"",
+		"BUNDLE_NAME":"com.example.materialbottomsheet",
 		"BUILD_PATH":{
-			"OUTPUT_PATH":"C:\\MaterialBottomSheet\\build\\outputs\\default"
+			"OUTPUT_PATH":"C:\\MaterialBottomSheet2\\build\\outputs\\default"
 		},
 		"SELECT_BUILD_PRODUCT":"default"
 	},
