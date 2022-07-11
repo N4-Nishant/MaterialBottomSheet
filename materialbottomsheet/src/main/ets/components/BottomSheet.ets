@@ -40,6 +40,10 @@ export struct BottomSheet {
 
   }
 
+  onClick() {
+    this.fullScreenBottomSheet = !this.fullScreenBottomSheet
+  }
+
   build() {
     Stack({
       alignContent: Alignment.Bottom
@@ -61,7 +65,7 @@ export struct BottomSheet {
             this.body()
           }
           .height('100%')
-          .onClick(() => this.fullScreenBottomSheet = !this.fullScreenBottomSheet)
+          .onClick(() => this.onClick())
         }
         else {
           Column() {
