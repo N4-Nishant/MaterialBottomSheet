@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "materialbottomsheet",
+    "name": "bottomsheet",
     "type": "har",
     "deviceTypes": [
       "phone",

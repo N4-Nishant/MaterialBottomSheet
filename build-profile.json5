@@ -24,8 +24,12 @@
       ]
     },
     {
-      "name": "materialbottomsheet",
-      "srcPath": "./materialbottomsheet"
+      "name": "bottomsheet",
+      "srcPath": "./bottomsheet"
+    },
+    {
+      "name": "bottomsheet",
+      "srcPath": "./bottomsheet"
     }
   ]
 }

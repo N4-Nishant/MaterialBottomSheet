@@ -10,6 +10,6 @@
   "repository": {},
   "license": "ISC",
   "dependencies": {
-    "@ohos/material-bottomsheet": "file:../materialbottomsheet"
+    "@ohos/material-bottomsheet": "file:../bottomsheet"
   }
 }
