@@ -16,13 +16,13 @@ Install using npm
 import { BottomSheet, BottomSheetModel }  from '@ohos/material-bottomsheet'
 ```
 
-2. Initialize TabBar model data
+2. Initialize Bottom-Sheet model data
 
 ```
 private model: BottomSheetModel = new BottomSheetModel()
 ```
 
-3. Code for creating Bottom-Sheet
+3. Code for creating Model Bottom-Sheet
 
 ```
 this.model
@@ -34,31 +34,27 @@ this.model
       
 BottomSheet({
             model: this.model,
-            visible: $visible,
-            body: this.model.getBody(),
-            fullScreenBottomSheet: false
+            visible: $visibleDialog1,
+            body: this.model.getBody()
           })
 ```
-![Bottom-Sheet](https://user-images.githubusercontent.com/82766420/178322478-828a9a08-19f6-445b-b32e-59a69cbeed1d.png)
 
-4. Code for creating Full screen Bottom-Sheet
+4. Code for creating Standard Bottom-Sheet
 
 ```
-this.model
+this.model1
       .setBottomSheetBackgroundColor('#F0F3FF')
       .setBackgroundScreenColor('#A5A5A5')
       .setBackgroundOpacity(0.6)
       .setBorderRadius('14vp')
-      .setBody(this.customDesign)
+      .setBody(this.customDesign1)
  
 BottomSheet({
-            model: this.model,
-            visible: $visible,
-            body: this.model.getBody(),
-            fullScreenBottomSheet: true
+            model: this.model1,
+            visible: $visibleDialog2,
+            body: this.model.getBody()
           })
 ```
-![Full screen Bottom-Sheet](https://user-images.githubusercontent.com/82766420/178322411-82e10531-ade4-4e18-a3aa-19157dcede3a.png)
 
 ## Compatibility
 

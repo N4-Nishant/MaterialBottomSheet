@@ -129,7 +129,7 @@ struct Index {
 
   build() {
     Column() {
-      Stack({ alignContent: Alignment.Bottom }) {
+      Stack({ alignContent: Alignment.Top }) {
         Column() {
         }
         .height('100%')
@@ -138,10 +138,14 @@ struct Index {
 
         if (this.visibleDialog1 == false && this.visibleDialog2 == false) {
           Row() {
-            Button('Bottom Sheet 1')
+            Button('Model Bottom Sheet')
+              .width('48%')
+              .height('56vp')
               .onClick(() => this.visibleDialog1 = true)
-            Blank(20)
-            Button('Bottom Sheet 2')
+            Blank(10)
+            Button('Standard Bottom Sheet')
+              .width('48%')
+              .height('56vp')
               .onClick(() => this.visibleDialog2 = true)
           }
         }
