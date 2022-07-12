@@ -38,6 +38,7 @@ BottomSheet({
             body: this.model.getBody()
           })
 ```
+![Model Bottom Sheet](https://user-images.githubusercontent.com/82766420/178438938-81737d65-5b0a-4579-ba89-9bfc77098578.png)
 
 4. Code for creating Standard Bottom-Sheet
 
@@ -55,6 +56,7 @@ BottomSheet({
             body: this.model.getBody()
           })
 ```
+![Standard Bottom Sheet](https://user-images.githubusercontent.com/82766420/178438992-d008bc36-c3b2-4fca-91ca-adf8b2b72e4b.png)
 
 ## Compatibility
 
