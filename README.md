@@ -68,7 +68,7 @@ If you find any problems during usage, you can submit an [Issue](https://github.
 
 ## Open source License
 
-Licensed under [Apache-2.0 license].
+Licensed under [Apache-2.0 license](https://github.com/N4-Nishant/MaterialBottomSheet/blob/main/LICENSE).
 
 # Reference:
 
