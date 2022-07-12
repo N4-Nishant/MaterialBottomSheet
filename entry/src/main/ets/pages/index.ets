@@ -14,7 +14,7 @@
  */
 
 import prompt from '@system.prompt';
-import { BottomSheet, BottomSheetModel }  from '@ohos/material-bottomsheet'
+import { BottomSheet, BottomSheetModel }  from '@ohos/bottomsheet'
 
 @Entry
 @Component

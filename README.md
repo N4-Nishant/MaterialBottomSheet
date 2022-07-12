@@ -1,4 +1,4 @@
-# MaterialBottomSheet
+# BottomSheet
 
 This library is developed to provide Bottom-Sheets implemented using extended typescript.
 
@@ -6,14 +6,14 @@ This library is developed to provide Bottom-Sheets implemented using extended ty
 
 Install using npm
 
-```npm i @ohos/material-bottomsheet```
+```npm i @ohos/bottomsheet```
 
 ## Usage Instructions
 
 1. Import files and code dependencies
 
 ```ets
-import { BottomSheet, BottomSheetModel }  from '@ohos/material-bottomsheet'
+import { BottomSheet, BottomSheetModel }  from '@ohos/bottomsheet'
 ```
 
 2. Initialize Bottom-Sheet model data
