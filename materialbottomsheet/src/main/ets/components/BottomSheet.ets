@@ -18,7 +18,6 @@ import { BottomSheetModel } from './BottomSheetModel';
 @Component
 export struct BottomSheet {
   @State private model: BottomSheetModel = undefined
-  @State fullScreenBottomSheet: boolean = false
   @Link private visible: boolean
   @BuilderParam
   private body: () => any
@@ -28,20 +27,6 @@ export struct BottomSheet {
       return
     }
 
-    if (this.fullScreenBottomSheet == null || this.fullScreenBottomSheet == undefined) {
-      this.fullScreenBottomSheet = false
-    }
-
-    if (this.body == null || this.body == undefined) {
-      setTimeout(() => {
-        this.visible = false
-      }, 500)
-    }
-
-  }
-
-  onClick() {
-    this.fullScreenBottomSheet = !this.fullScreenBottomSheet
   }
 
   build() {
@@ -59,25 +44,16 @@ export struct BottomSheet {
         this.visible = false
       })
 
-      Column() {
-        if (this.fullScreenBottomSheet == true) {
-          Column() {
-            this.body()
-          }
-          .height('100%')
-          .onClick(() => this.onClick())
+      if (this.body != null && this.body != undefined) {
+        Column() {
+          this.body()
         }
-        else {
-          Column() {
-            this.body()
-          }
-        }
+        .width('100%')
+        .borderRadius(this.model.getBorderRadius())
+        .borderColor(this.model.getBorderColor())
+        .backgroundColor(this.model.getBottomSheetBackgroundColor())
+        .alignItems(HorizontalAlign.Center)
       }
-      .width('100%')
-      .borderRadius(this.model.getBorderRadius())
-      .borderColor(this.model.getBorderColor())
-      .backgroundColor(this.model.getBottomSheetBackgroundColor())
-      .alignItems(HorizontalAlign.Center)
     }
     .height('100%')
     .width('100%')
