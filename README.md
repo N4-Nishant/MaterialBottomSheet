@@ -64,7 +64,7 @@ Supports OpenHarmony API version 9
 
 ## Code Contribution
 
-If you find any problems during usage, you can submit an [Issue] to us. Of course, we also welcome you to send us [PR].
+If you find any problems during usage, you can submit an [Issue](https://github.com/Applib-OpenHarmony/BottomSheet/issues) to us. Of course, we also welcome you to send us [PR](https://github.com/Applib-OpenHarmony/BottomSheet/pulls).
 
 ## Open source License
 
